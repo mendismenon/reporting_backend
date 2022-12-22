@@ -1,10 +1,11 @@
-const express = require("express");
-const { default: mongoose } = require("mongoose");
-const { connectionObj } = require("./db/connections");
-const { taskModal, taskConnection } = require("./db/modals/formdata");
-const { formDataRouter } = require("./routers/formData");
-const { taskRouter } = require("./routers/tasks");
-const { userRouter } = require("./routers/users");
+ const express = require("express");
+ const { default: mongoose } = require("mongoose");
+const { formDataRouter } = require("./src/routers/formData");
+// const { connectionObj } = require("./db/connections");
+// const { taskModal, taskConnection } = require("./db/modals/formdata");
+// const { formDataRouter } = require("./routers/formData");
+// const { taskRouter } = require("./routers/tasks");
+// const { userRouter } = require("./routers/users");
 
 const app = express();
 
