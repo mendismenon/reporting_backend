@@ -29,13 +29,30 @@ const createUser = (request, response) => {
     (error, results) => {
       if (error) {
         console.log(error);
-        response.status(403).send(`User added failed ${error}`);
+        response.status(403).send({ data: `User added failed ${error}` });
         //throw error;
       }
       console.log(results);
-      response.status(201).send({data:`User added with ID: ${results?.rows[0]?.id}`});
+      response
+        .status(201)
+        .send({ data: `User added with ID: ${results?.rows[0]?.id}` });
     }
   );
 };
 
-module.exports = { createUser };
+const fetchCallRecords = (req, res) => {
+  const { date } = req.body;
+  pool.query('SELECT * FROM "UploadFormTb"',(error,results)=>{
+    if (error) {
+        console.log(error);
+        res.status(403).send({ data: `User added failed ${error}` });
+        //throw error;
+      }
+      console.log(results);
+      res
+        .status(201)
+        .send({ data: results?.rows });
+  });
+};
+
+module.exports = { createUser, fetchCallRecords };
